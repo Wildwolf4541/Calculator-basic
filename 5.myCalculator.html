@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            #outer{
+                background-color: black;
+                width: 600px; height: 600px; border: 2px; box-shadow: 0px 0px 5px 5px;margin: auto; margin-top: 50px;
+                padding: 20px 20px 20px 20px;
+            }
+            .disp{
+                width: 475px; height: 100px; background-color: rgb(185, 180, 180); margin-bottom: 25px; border: 4px grey solid;
+                float: left; font-size: 30px; font-weight: bold;
+            }
+            #btn_Clear{
+                width: 100px; height: 50px; background-color: lightgray; 
+                display: flex; align-items: center;text-align: center;justify-content: center;
+                font-weight: bold; font-size: large; float: left;
+                margin: 25px 0px 0px 10px;
+            }
+            .frame{
+                width: 600px; height: 450px;
+            }
+            .rows{
+                width: 600px; height: 90px; border: 4px rgba(255, 255, 255, 0.581) solid;
+                display: flex; justify-content: space-evenly; align-items: center;
+            }
+            #btn{
+                width: 125px; height: 50px; background-color: lightgray; 
+                display: flex; align-items: center;text-align: center;justify-content: center;
+                font-weight: bold; font-size: large;    
+            }
+            </style>
+        
+        <script>
+            function doConcat(dgitSymbl){
+                let scrExp=document.getElementById("scr").value;
+                scrExp+=dgitSymbl;
+                document.getElementById("scr").value=scrExp;
+            }
+            function doReset(){
+                document.getElementById("scr").value="";
+            }
+            function doEval(){
+                let res=eval(document.getElementById("scr").value);
+                document.getElementById("scr").value=res;
+            }
+            function doDel(){
+                let scrExp=document.getElementById("scr").value;
+                let res=scrExp.substr(0,scrExp.length-1);
+                document.getElementById("scr").value=res;
+            }
+        </script>
+    </head>
+    <body bgcolor="grey">
+        <div><center><font size="18" style="font-weight: bold;"><U>CACULATOR</U></font></center></div>
+        <div id="outer">
+            <div> <input type="text" id="scr" class="disp" readonly> </div>
+            <div> <input type="button" id="btn_Clear" value="AC" onclick="doReset();"></div>
+            <div class="frame">
+                <div class="rows">
+                    <div><input type="button" id="btn" value="C"onclick="doDel();" > </div>
+                    <div><input type="button" id="btn" value="(" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value=")" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="%" onclick="doConcat(this.value);"> </div>
+                </div>
+                <div class="rows">
+                    <div><input type="button" id="btn" value="1" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="2" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="3" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="+" onclick="doConcat(this.value);"> </div>
+                </div>
+                <div class="rows">
+                    <div><input type="button" id="btn" value="4" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="5" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="6" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="-" onclick="doConcat(this.value);"> </div>
+                </div>
+                <div class="rows">
+                    <div><input type="button" id="btn" value="7" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="8" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="9" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="*" onclick="doConcat(this.value);"> </div>
+                </div>
+                <div class="rows">
+                    <div><input type="button" id="btn" value="0" onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="." onclick="doConcat(this.value);"> </div>
+                    <div><input type="button" id="btn" value="=" onclick="doEval();"> </div>
+                    <div><input type="button" id="btn" value="/" onclick="doConcat(this.value);"> </div>
+                </div>
+            </div>
+        </div>
+        <p style="font-weight: bold; color: white; font-size: 25px; font-family: monospace; text-align: right; margin-right: 100px;">
+            Created by AKHIL Gupta
+        </p>
+    </body>
+</html>
